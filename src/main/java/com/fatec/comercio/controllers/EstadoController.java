@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fatec.comercio.models.Uf;
-import com.fatec.comercio.service.UfService;
+import com.fatec.comercio.models.Estado;
+import com.fatec.comercio.service.EstadoService;
 
 @RestController
 @RequestMapping("/ufs")
-public class UfController {
+public class EstadoController {
 
-    private final UfService ufService;
+    private final EstadoService ufService;
 
-    public UfController(UfService ufService) {
+    public EstadoController(EstadoService ufService) {
         this.ufService = ufService;
     }
 
     @GetMapping("")
-    public List<Uf> getUfs() {
+    public List<Estado> getUfs() {
         return ufService.allUfs();
     }
 
     @GetMapping("/{id}")
-    public Uf getUfId(@PathVariable Integer id) {
+    public Estado getUfId(@PathVariable Integer id) {
         return ufService.ufId(id);
     }
 
     @PostMapping("")
-    public String postUf(@RequestBody Uf uf) {
+    public String postUf(@RequestBody Estado uf) {
         ufService.salvarUf(uf);
         return "Dados Salvos com Sucesso!!!";
     }
@@ -43,11 +43,11 @@ public class UfController {
     @DeleteMapping("/{id}")
     public String deletaId(@PathVariable Integer id) {
         ufService.apagaId(id);
-        return "O Uf de código: " + id + " foi deletado";
+        return "O Estado de código: " + id + " foi deletado";
     }
 
     @PutMapping("/{id}")
-    public String putUf(@PathVariable Integer id, @RequestBody Uf uf) {
+    public String putUf(@PathVariable Integer id, @RequestBody Estado uf) {
         // TODO: process PUT request
         ufService.editarUf(id, uf);
         return "Dados atualizados com sucesso!";

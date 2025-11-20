@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-public class Uf {
+public class Estado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -1,8 +1,8 @@
 package com.fatec.comercio.forms;
 
 import com.fatec.comercio.models.Cidade;
-import com.fatec.comercio.models.Uf;
-import com.fatec.comercio.repository.UfRepository;
+import com.fatec.comercio.models.Estado;
+import com.fatec.comercio.repository.EstadoRepository;
 
 public class CidadeForm {
     private Integer codcidade;
@@ -30,8 +30,8 @@ public class CidadeForm {
     }
 
     //metodo conversao p entidade cidade
-    public Cidade converter(UfRepository ufRepository){
-        Uf uf = ufRepository.findByNomeuf(nomeuf);
+    public Cidade converter(EstadoRepository ufRepository){
+        Estado uf = ufRepository.findByNomeuf(nomeuf);
         return new Cidade(nomecidade, uf);
     }
 

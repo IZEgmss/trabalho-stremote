@@ -21,7 +21,7 @@ public class Cidade {
 
     @ManyToOne
     @JoinColumn(name = "coduffk")
-    private Uf uf;
+    private Estado uf;
 
 
 
@@ -41,15 +41,15 @@ public class Cidade {
         this.nomecidade = nomecidade;
     }
 
-    public Uf getUf() {
+    public Estado getUf() {
         return uf;
     }
 
-    public void setUf(Uf uf) {
+    public void setUf(Estado uf) {
         this.uf = uf;
     }
 
-    public Cidade(String nomecidade, Uf uf){
+    public Cidade(String nomecidade, Estado uf){
         this.nomecidade = nomecidade;
         this.uf = uf;
     }

@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.fatec.comercio.forms.CidadeForm;
 import com.fatec.comercio.models.Cidade;
-import com.fatec.comercio.models.Uf;
+import com.fatec.comercio.models.Estado;
 import com.fatec.comercio.repository.CidadeRepository;
-import com.fatec.comercio.repository.UfRepository;
+import com.fatec.comercio.repository.EstadoRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service    
@@ -17,7 +17,7 @@ public class CidadeService {
     @Autowired
     private CidadeRepository cidadeRepository;
     @Autowired
-    private UfRepository ufRepository;
+    private EstadoRepository ufRepository;
 
     public CidadeService(CidadeRepository cidadeRepository){
         this.cidadeRepository = cidadeRepository;
@@ -46,7 +46,7 @@ public class CidadeService {
 
     @Transactional
     public Cidade editaCidade(CidadeForm cidadeForm, Integer id){
-        Uf uf = ufRepository.findByNomeuf(cidadeForm.getNomeuf());
+        Estado uf = ufRepository.findByNomeuf(cidadeForm.getNomeuf());
         Cidade cidade = cidadeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cidade não encontrada com o ID:"+id));
         cidade.setNomecidade(cidadeForm.getNomecidade());
