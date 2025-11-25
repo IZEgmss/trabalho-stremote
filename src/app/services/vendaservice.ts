@@ -24,6 +24,7 @@ export interface Venda {
 
 @Injectable({ providedIn: 'root' })
 export class VendaService {
+  [x: string]: any;
   private apiUrl = 'http://localhost:8090/vendas';
   private vendasSubject = new BehaviorSubject<Venda[]>([]);
   public vendas$ = this.vendasSubject.asObservable();

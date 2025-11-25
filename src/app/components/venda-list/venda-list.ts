@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { catchError, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Venda, VendaService } from '../../services/vendaservice';
 
